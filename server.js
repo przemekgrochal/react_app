@@ -12,11 +12,9 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(bodyParser.json());
-
 app.use("/static", express.static(path.join(__dirname, "./build/static")));
 
-app.get("/", function (req, res) {
+app.get("/*", function (req, res) {
     res.sendFile("index.html", { root: path.join(__dirname, "./build/") });
 });
 
